@@ -1,13 +1,14 @@
 class NotesAdapter {
 	constructor() {
-		this.baseUrl = 'http://localhost:3000/api/v1/notes'
-		// this.baseUrl = 'https://swt-notes-api.herokuapp.com/api/notes'
+		// this.baseUrl = 'http://127.0.0.1:3000/api/v1/notes'
+		this.baseUrl = 'https://swt-notes-api.herokuapp.com/api/v1/notes'
 		this.baseUrl2 = 'https://music-db-api.herokuapp.com/api/songs'
 	}
 
 	getNotes() {
-		return fetch(this.baseUrl).then(res => res.json()
-		)
+		return fetch(this.baseUrl).then(res => {
+			return res.json()
+		})
 	}
 
 	createNote(value) {

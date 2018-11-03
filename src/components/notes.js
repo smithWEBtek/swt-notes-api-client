@@ -27,8 +27,7 @@ class Notes {
 	}
 
 	fetchAndLoadNotes() {
-		this.adapter
-			.getNotes()
+		this.adapter.getNotes()
 			.then(notes => {
 				notes.forEach(note => this.notes.push(new Note(note)))
 			})
