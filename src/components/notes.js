@@ -18,25 +18,19 @@ class Notes {
 
 	createNote(e) {
 		e.preventDefault()
-		// be aware of the value of 'this', if you don't bind 'this' to Note class before calling,
-		// you will have 'this' being the noteForm that called createNote, in (initBindEventListeners)
-		// and this.adapter will not work because the noteForm doesn't have a createNote function  
-		console.log('[notes.js]', 'note being created ... ');
-		console.log('[notes.js] newNoteBody.value: ', this.newNoteBody.value);
-
 		const value = this.newNoteBody.value
 		this.adapter.createNote(value)
-		// .then(note => {
-		// 	console.log(note)
-		// 	// this.notes.push(new Note(note))
-		// })
+			.then(note => {
+				this.notes.push(new Note(note))
+				this.render()
+			})
 	}
 
 	fetchAndLoadNotes() {
-		this.adapter.getNotes()
+		this.adapter
+			.getNotes()
 			.then(notes => {
-				this.notes.forEach(note => this.notes.push(new Note(note)));
-				console.log('this.notes: ', this.notes);
+				notes.forEach(note => this.notes.push(new Note(note)))
 			})
 			.then(() => {
 				this.render()

@@ -1,6 +1,7 @@
 class NotesAdapter {
 	constructor() {
 		this.baseUrl = 'http://localhost:3000/api/v1/notes'
+		// this.baseUrl = 'https://swt-notes-api.herokuapp.com/api/notes'
 		this.baseUrl2 = 'https://music-db-api.herokuapp.com/api/songs'
 	}
 
