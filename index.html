@@ -24,6 +24,13 @@
 			<ul id="notes-container">
 			</ul>
 		</div>
+
+		<div id='edit-note-container' style='visibility: hidden;'>
+			<form id="edit-note-form" onsubmit='updateNote' , return false>
+				<input type='text' id='edit-note-body'></input>
+				<input type='submit' style='visibility: true' value='Update'></input>
+			</form>
+		</div>
 		<div>
 			<h2>Songs</h2>
 			<ul id="songs-container">

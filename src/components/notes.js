@@ -10,10 +10,21 @@ class Notes {
 
 	initBindEventListeners() {
 		this.notesContainer = document.getElementById('notes-container')
-		// creates the attribute notesContainer on 'THIS' instance of Notes object 
+		this.body = document.querySelector('body')
+
 		this.noteForm = document.getElementById('new-note-form')
 		this.newNoteBody = document.getElementById('new-note-body')
 		this.noteForm.addEventListener('submit', this.createNote.bind(this))
+		this.notesContainer.addEventListener('dblclick', this.handleNoteClick.bind(this))
+		// this.notesContainer.addEventListener('blur', this.updateNote.bind(this), true) // worked
+		this.body.addEventListener('blur', this.updateNote.bind(this), true)
+	}
+
+	handleNoteClick(e) {
+		const li = e.target
+		li.contentEditable = true
+		li.classList.add('editable')
+		li.focus()
 	}
 
 	createNote(e) {
@@ -22,8 +33,17 @@ class Notes {
 		this.adapter.createNote(value)
 			.then(note => {
 				this.notes.push(new Note(note))
+				this.newNoteBody.value = ''
 				this.render()
 			})
+	}
+
+	updateNote(e) {
+		e.preventDefault()
+		console.log('edit note ...', event.target);
+		let body = e.target.textContent
+		let id = e.target.dataset.id
+		this.adapter.updateNote(id, body)
 	}
 
 	fetchAndLoadNotes() {
@@ -55,6 +75,7 @@ class Notes {
 
 	// 3
 	render() {
+		// this.newNoteBody.value = ''
 		const notesList = this.notes.map(n => n.renderLi()).join('')
 		this.notesContainer.innerHTML = notesList
 	}

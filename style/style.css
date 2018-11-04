@@ -27,8 +27,8 @@ ul {
 	color: red;
 }
 
-#editable {
-	border: 1px solid black; 
+.editable {
+	border: 2px solid black; 
 	padding: 20px;
 }
 
