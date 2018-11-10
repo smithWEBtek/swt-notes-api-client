@@ -52,4 +52,32 @@ class NotesAdapter {
 	getSongs() {
 		return fetch(this.baseUrl2).then(res => res.json())
 	}
+
+	// getStudent() {
+	// 	console.log('getStudent()1');
+	// 	fetch('https://instruction.learn.co/staff/students/dillorom', {
+	// 		method: "POST",
+	// 		authentication: {
+	// 			username: 'smithwebtek',
+	// 			password: 'ghJointer1980'
+	// 		},
+	// 		headers: {
+	// 			"Content-Type": "text/html; charset=utf-8"
+	// 		}
+	// 	}).then(function (response) {
+	// 		response.status     //=> number 100–599
+	// 		response.statusText //=> String
+	// 		response.headers    //=> Headers
+	// 		response.url        //=> String
+	// 		console.log('response from getStudent', response.text());
+	// 		return response.text()
+	// 	}, function (error) {
+	// 		error.message //=> String
+	// 	})
+
+	// }
+
+	getStudent() {
+		return "this ain't workin yet..."
+	}
 }

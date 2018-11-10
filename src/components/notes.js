@@ -4,7 +4,7 @@ class Notes {
 		this.songs = []
 		this.adapter = new NotesAdapter()
 		this.initBindEventListeners()
-		this.fetchAndLoadNotes()
+		// this.fetchAndLoadNotes()
 		this.fetchAndLoadSongs()
 	}
 
@@ -20,6 +20,9 @@ class Notes {
 		// this.notesContainer.addEventListener('blur', this.updateNote.bind(this), true) // worked
 		this.updateButton = document.getElementById('update-button')
 		this.notesContainer.addEventListener('blur', this.updateNote.bind(this), true)
+
+		this.studentInfo = document.getElementById('student-info-button')
+		this.studentInfo.addEventListener('click', this.fetchAndLoadStudent.bind(this), true)
 	}
 
 	handleNoteClick(e) {
@@ -101,5 +104,9 @@ class Notes {
 				songList.innerHTML += (`<li song-id=${index}>${song.title}</li>`)
 			})
 		})
+	}
+
+	fetchAndLoadStudent() {
+		document.getElementById('student').textContent += this.adapter.getStudent();
 	}
 }
