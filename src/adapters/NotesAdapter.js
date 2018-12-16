@@ -58,8 +58,7 @@ class NotesAdapter {
 	// 	fetch('https://instruction.learn.co/staff/students/dillorom', {
 	// 		method: "POST",
 	// 		authentication: {
-	// 			username: 'smithwebtek',
-	// 			password: 'ghJointer1980'
+
 	// 		},
 	// 		headers: {
 	// 			"Content-Type": "text/html; charset=utf-8"
